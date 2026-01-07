@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARES SECURITY | 3D</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="container3d"></div>
+
+<main>
+    <section class="panel">
+        <h1>HARES SECURITY</h1>
+    </section>
+    <section class="panel">
+        <div class="content">
+            <h2>О НАС</h2>
+            <p>Инновационные системы наблюдения</p>
+        </div>
+    </section>
+    <section class="panel">
+        <div class="form-container">
+            <h2>КОНТАКТЫ</h2>
+            <form>
+                <label>
+                    <input type="email" placeholder="Email">
+                </label>
+                <button>ОТПРАВИТЬ</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+</script>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>

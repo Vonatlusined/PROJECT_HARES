@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    /* Темный серо-синий градиент */
+    background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+#container3d {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none; /* Пропускает клики сквозь 3D */
+}
+
+main {
+    position: relative;
+    z-index: 2; /* Текст поверх 3D */
+}
+
+.panel {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+h1 { font-size: 4rem; letter-spacing: 10px; text-transform: uppercase; text-align: center; }
+h2 { font-size: 3rem; color: #4facfe; margin-bottom: 20px; }
+p { font-size: 1.5rem; max-width: 600px; text-align: center; }
+
+.form-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+input, button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 1rem;
+}
+
+button {
+    background: #4facfe;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
