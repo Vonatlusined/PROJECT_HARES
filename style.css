@@ -1,12 +1,157 @@
-body {
+/* 1. БАЗОВЫЕ НАСТРОЙКИ И ШРИФТЫ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+:root {
+    --glass-bg: rgba(18, 18, 18, 0.7);      /* Глубокий серый с прозрачностью */
+    --glass-border: rgba(255, 255, 255, 0.08); /* Едва заметная граница */
+    --accent-blue: #758491;                /* Фирменный синий Securytec */
+    --text-grey: #b0b0b0;                  /* Мягкий серый для текста */
+    --light-grey: #e0e0e0;                 /* Светло-серый для заголовков */
+}
+
+* {
     margin: 0;
-    /* Темный серо-синий градиент */
-    background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
-    color: white;
-    font-family: 'Segoe UI', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #2a3e5a; /* Почти черный для контраста со стеклом */
+    color: var(--light-grey);
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
 
+/* 2. LIQUID GLASS HEADER */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    background: var(--glass-bg);
+
+    /* Эффект размытия как в iOS */
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 40px;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    left: 40px;
+}
+
+.logo img {
+    height: 150px;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+}
+
+/* 3. НАВИГАЦИЯ */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.main-nav ul li {
+    position: relative;
+    padding: 10px 0;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--light-grey);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--accent-blue);
+    text-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
+}
+
+/* 4. ВЫПАДАЮЩЕЕ МЕНЮ (FIXED & LIQUID) */
+.submenu {
+    display: none !important; /* ПРИНУДИТЕЛЬНО СКРЫТО */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(15, 15, 15, 0.9) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 8px;
+    padding: 20px;
+    min-width: 240px;
+    list-style: none;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    margin-top: 5px;
+}
+
+/* Показ при наведении */
+.dropdown:hover .submenu {
+    display: flex !important;
+}
+
+.submenu li a {
+    text-transform: none; /* Обычный регистр */
+    font-size: 14px;
+    color: var(--text-grey);
+    font-weight: 400;
+}
+
+.submenu li a:hover {
+    color: #fff;
+    padding-left: 8px;
+}
+
+/* 5. КНОПКА ANGEBOT EINHOLEN */
+.header-action {
+    position: absolute;
+    right: 40px;
+}
+
+.btn-quote {
+    background: var(--accent-blue);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+}
+
+.btn-quote:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* 6. КОНТЕНТНЫЕ СЕКЦИИ */
 #container3d {
     position: fixed;
     top: 0;
@@ -14,45 +159,87 @@ body {
     width: 100%;
     height: 100vh;
     z-index: 1;
-    pointer-events: none; /* Пропускает клики сквозь 3D */
-}
-
-main {
-    position: relative;
-    z-index: 2; /* Текст поверх 3D */
 }
 
 .panel {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0 20px;
+    padding-left: 10%;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
 }
 
-h1 { font-size: 4rem; letter-spacing: 10px; text-transform: uppercase; text-align: center; }
-h2 { font-size: 3rem; color: #4facfe; margin-bottom: 20px; }
-p { font-size: 1.5rem; max-width: 600px; text-align: center; }
-
-.form-container {
-    background: rgba(255, 255, 255, 0.05);
+.content-box {
+    max-width: 700px;
+    pointer-events: all;
+    background: rgba(255, 255, 255, 0.02);
     padding: 40px;
     border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-input, button {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
+h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 0.85;
+    margin-bottom: 20px;
+    color: #fff;
+    letter-spacing: -2px;
+}
+
+h3 {
+    color: var(--accent-blue);
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 18px;
+    color: var(--text-grey);
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+.btn-main {
+    background: var(--accent-blue);
+    color: white;
+    padding: 18px 40px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* 7. ФОРМА (Liquid Grey Style) */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
     padding: 15px;
-    font-size: 1rem;
+    color: white;
+    border-radius: 5px;
+    font-family: inherit;
+    outline: none;
+    transition: 0.3s;
 }
 
-button {
-    background: #4facfe;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+.contact-form input:focus {
+    border-color: var(--accent-blue);
+    background: rgba(255, 255, 255, 0.1);
 }

@@ -1,51 +1,81 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HARES SECURITY | 3D</title>
+    <title>Securytec | Eventschutz & Sicherheit</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<header class="main-header">
+    <div class="header-container">
+        <div class="logo">
+            <img src="HARES.png" alt="HARES">
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home">Startseite</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li class="dropdown">
+                    <a href="#services">Leistungen ▾</a>
+                    <ul class="submenu">
+                        <li><a href="#objektschutz">Objektschutz</a></li>
+                        <li><a href="#eventschutz">Eventschutz</a></li>
+                        <li><a href="#brandschutz">Brandschutz</a></li>
+                        <li><a href="#revierdienst">Revierdienst</a></li>
+                        <li><a href="#technik">Technik</a></li>
+                    </ul>
+                </li>
+                <li><a href="#karriere">Karriere</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-action">
+            <a href="#contact" class="btn-quote">Angebot einholen</a>
+        </div>
+    </div>
+</header>
 
 <div id="container3d"></div>
 
 <main>
-    <section class="panel">
-        <h1>HARES SECURITY</h1>
-    </section>
-    <section class="panel">
-        <div class="content">
-            <h2>О НАС</h2>
-            <p>Инновационные системы наблюдения</p>
+    <section id="home" class="panel">
+        <div class="content-box">
+            <h1>Eventschutz</h1>
+            <h3>Sicherheit für Ihre Veranstaltung</h3>
+            <p>Ob Konzert, Firmenfeier, Messe, Stadtfest oder private Veranstaltung – wir sorgen mit professionellem Eventschutz für einen reibungslosen Ablauf.</p>
+            <a href="#contact" class="btn-main">Anfragen</a>
         </div>
     </section>
-    <section class="panel">
-        <div class="form-container">
-            <h2>КОНТАКТЫ</h2>
-            <form>
-                <label>
-                    <input type="email" placeholder="Email">
-                </label>
-                <button>ОТПРАВИТЬ</button>
+
+    <section id="about" class="panel">
+        <div class="content-box">
+            <h2>Über uns</h2>
+            <p>Unsere geschulten Sicherheitskräfte übernehmen Einlasskontrollen, Bereichssicherung, Notfallmanagement und die deeskalierende Begleitung Ihres Events.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="panel">
+        <div class="content-box">
+            <h2>Kontakt</h2>
+            <form class="contact-form" onsubmit="event.preventDefault()">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="E-Mail" required>
+                <textarea placeholder="Ihre Nachricht" rows="4"></textarea>
+                <button type="submit" class="btn-main">Absenden</button>
             </form>
         </div>
     </section>
 </main>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-<script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-      }
-    }
-</script>
-
-<script type="module" src="script.js"></script>
-
+<script src="script.js"></script>
 </body>
 </html>
